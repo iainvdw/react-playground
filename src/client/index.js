@@ -19,3 +19,17 @@ render(
   </Provider>,
   document.getElementById('root'),
 );
+
+if (process.env.NODE_ENV == 'development' && module.hot) {
+  module.hot.accept('../app/App', () => {
+    const NewApp = require('../app/App').default;
+    render(
+      <Provider store={store}>
+        <ConnectedRouter history={history}>
+          <NewApp />
+        </ConnectedRouter>
+      </Provider>,
+      document.getElementById('root'),
+    );
+  });
+}

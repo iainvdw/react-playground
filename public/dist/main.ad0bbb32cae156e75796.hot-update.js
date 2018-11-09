@@ -1,0 +1,82 @@
+webpackHotUpdate("main",{
+
+/***/ "./src/app/store/reducers/index.js":
+/*!*****************************************!*\
+  !*** ./src/app/store/reducers/index.js ***!
+  \*****************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* WEBPACK VAR INJECTION */(function(module) {/* harmony import */ var redux_immutable__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! redux-immutable */ "./node_modules/redux-immutable/dist/index.js");
+/* harmony import */ var redux_immutable__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(redux_immutable__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var immutable__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! immutable */ "./node_modules/immutable/dist/immutable.es.js");
+/* harmony import */ var connected_react_router_immutable__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! connected-react-router/immutable */ "./node_modules/connected-react-router/immutable.js");
+/* harmony import */ var connected_react_router_immutable__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(connected_react_router_immutable__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _auth__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./auth */ "./src/app/store/reducers/auth.js");
+(function () {
+  var enterModule = __webpack_require__(/*! react-hot-loader */ "./node_modules/react-hot-loader/index.js").enterModule;
+
+  enterModule && enterModule(module);
+})();
+
+(function () {
+  var enterModule = __webpack_require__(/*! react-hot-loader */ "./node_modules/react-hot-loader/index.js").enterModule;
+
+  enterModule && enterModule(module);
+})();
+
+
+
+
+
+
+var _default = function _default(history) {
+  return Object(redux_immutable__WEBPACK_IMPORTED_MODULE_0__["combineReducers"])(immutable__WEBPACK_IMPORTED_MODULE_1__["default"].Map({
+    router: Object(connected_react_router_immutable__WEBPACK_IMPORTED_MODULE_2__["connectRouter"])(history),
+    auth: _auth__WEBPACK_IMPORTED_MODULE_3__["default"]
+  }));
+};
+
+var _default2 = _default;
+/* harmony default export */ __webpack_exports__["default"] = (_default2);
+;
+
+(function () {
+  var reactHotLoader = __webpack_require__(/*! react-hot-loader */ "./node_modules/react-hot-loader/index.js").default;
+
+  var leaveModule = __webpack_require__(/*! react-hot-loader */ "./node_modules/react-hot-loader/index.js").leaveModule;
+
+  if (!reactHotLoader) {
+    return;
+  }
+
+  reactHotLoader.register(_default, "default", "/Users/iain/Projects/react-ssr/src/app/store/reducers/index.js");
+  leaveModule(module);
+})();
+
+;
+;
+
+(function () {
+  var reactHotLoader = __webpack_require__(/*! react-hot-loader */ "./node_modules/react-hot-loader/index.js").default;
+
+  var leaveModule = __webpack_require__(/*! react-hot-loader */ "./node_modules/react-hot-loader/index.js").leaveModule;
+
+  if (!reactHotLoader) {
+    return;
+  }
+
+  reactHotLoader.register(_default, "_default", "/Users/iain/Projects/react-ssr/src/app/store/reducers/index.js");
+  reactHotLoader.register(_default2, "default", "/Users/iain/Projects/react-ssr/src/app/store/reducers/index.js");
+  leaveModule(module);
+})();
+
+;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../../../node_modules/webpack/buildin/harmony-module.js */ "./node_modules/webpack/buildin/harmony-module.js")(module)))
+
+/***/ })
+
+})
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vLi9zcmMvYXBwL3N0b3JlL3JlZHVjZXJzL2luZGV4LmpzIl0sIm5hbWVzIjpbImNvbWJpbmVSZWR1Y2VycyIsInJvdXRlciIsImNvbm5lY3RSb3V0ZXIiLCJhdXRoIiwiYXV0aFJlZHVjZXIiXSwibWFwcGluZ3MiOiI7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O0FBQUE7QUFDQTtBQUNBO0FBRUE7O2VBRWUsMkJBQU87QUFBQSxTQUFJQSx1RUFBZSxDQUN2QyxpREFBUyxDQUFULElBQWM7QUFDWkMsVUFBTSxFQUFFQyxzRkFBYSxDQURULE9BQ1MsQ0FEVDtBQUVaQyxRQUFJLEVBQUVDLDZDQUFXQTtBQUZMLEdBQWQsQ0FEdUMsQ0FBbkI7OztnQkFBdEIsUTtBQUFlIiwiZmlsZSI6Im1haW4uYWQwYmJiMzJjYWUxNTZlNzU3OTYuaG90LXVwZGF0ZS5qcyIsInNvdXJjZXNDb250ZW50IjpbImltcG9ydCB7IGNvbWJpbmVSZWR1Y2VycyB9IGZyb20gJ3JlZHV4LWltbXV0YWJsZSc7XG5pbXBvcnQgSW1tdXRhYmxlIGZyb20gJ2ltbXV0YWJsZSc7XG5pbXBvcnQgeyBjb25uZWN0Um91dGVyIH0gZnJvbSAnY29ubmVjdGVkLXJlYWN0LXJvdXRlci9pbW11dGFibGUnO1xuXG5pbXBvcnQgYXV0aFJlZHVjZXIgZnJvbSAnLi9hdXRoJztcblxuZXhwb3J0IGRlZmF1bHQgaGlzdG9yeSA9PiBjb21iaW5lUmVkdWNlcnMoXG4gIEltbXV0YWJsZS5NYXAoe1xuICAgIHJvdXRlcjogY29ubmVjdFJvdXRlcihoaXN0b3J5KSxcbiAgICBhdXRoOiBhdXRoUmVkdWNlcixcbiAgfSksXG4pO1xuIl0sInNvdXJjZVJvb3QiOiIifQ==

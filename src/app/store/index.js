@@ -16,18 +16,34 @@ if (process.env.NODE_ENV === 'development') {
   }
 }
 
+// Setup Redux store with routing and thunks
 const setupStore = (history) => {
   const middleware = [thunk, routerMiddleware(history)];
 
+  // Merge enhancers
   const composedEnhancers = compose(
     applyMiddleware(...middleware),
     ...enhancers,
   );
-  return createStore(
+
+  // Build the store
+  const store = createStore(
     connectRouter(history)(createRootReducer(history)),
     initialState,
     composedEnhancers,
   );
+
+  // Hot reload reducers (requires Webpack or Browserify HMR to be enabled)
+  if (module.hot) {
+    module.hot.accept('./reducers', () => {
+      const createNewRootReducer = require('./reducers').default;
+
+      store.replaceReducer(createNewRootReducer(history));
+    });
+  }
+
+  // Create the store
+  return store;
 };
 
 export default setupStore;
