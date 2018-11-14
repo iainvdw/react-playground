@@ -10,6 +10,14 @@ Test repository to experiment with different React technologies
 - Redux Sagas
 - Lazy loading + code splitting using dynamic `import()` statements with React Loadable
 
+## Stuff to research
+
+- Form libraries (Redux Form, Formik, Liform)
+- CSS in JS (styled-component, CSS Blocks, glamour, etc.)
+- React Hooks
+- React Suspense
+- React `lazy()`
+
 ## Getting started
 
 1. Run `npm install`
