@@ -13,5 +13,5 @@ Test repository to experiment with different React technologies
 ## Getting started
 
 1. Run `npm install`
-2. Run `npm build`
-3. Run `npm start` for production build, or run `npm start:dev` for development with reloading
+2. Run `npm run watch` to start development
+3. Open [localhost:3000](http://localhost:3000)
