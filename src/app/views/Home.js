@@ -1,28 +1,27 @@
 import React from 'react';
-import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
-import { authUser, logoutUser } from '../store/actions/auth-actions';
+import actions from '../store/Auth';
 
-function Home(props) {
+function Home({ auth, login, logout }) {
   function handleLogin() {
-    props.authUser({ user: 'Iain' });
+    login({ user: 'Iain' });
   }
 
   function handleLogout() {
-    props.logoutUser();
+    logout();
   }
 
   return (
     <>
       <h1>This is home</h1>
-      {props.auth.loading ? (
+      {auth.loading ? (
         <p>Loading</p>
       ) : (
-        <p>{props.auth.user ? `Logged in! Welcome ${props.auth.user}` : 'Login first please!'}</p>
+        <p>{auth.user ? `Logged in! Welcome ${auth.user.name}` : 'Login first please!'}</p>
       )}
-      {props.auth.error ? <p>{props.auth.error}</p> : null}
-      {props.auth.user ? (
+      {auth.error ? <p>{auth.error}</p> : null}
+      {auth.user ? (
         <button type="button" onClick={handleLogout}>
           Logout
         </button>
@@ -35,11 +34,11 @@ function Home(props) {
   );
 }
 
-const mapStateToProps = state => ({
-  auth: state.auth,
+const mapStateToProps = state => ({ auth: state.auth });
+const mapDispatchToProps = dispatch => ({
+  login: user => dispatch(actions.login(user)),
+  logout: () => dispatch(actions.logout()),
 });
-
-const mapDispatchToProps = dispatch => bindActionCreators({ authUser, logoutUser }, dispatch);
 
 export default connect(
   mapStateToProps,

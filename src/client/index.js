@@ -4,32 +4,28 @@ import { Provider } from 'react-redux';
 import { ConnectedRouter } from 'connected-react-router';
 import createHistory from 'history/createBrowserHistory';
 
-import setupStore from '../app/store';
+import createStore from '../app/store';
 import App from '../app/App';
 
 const history = createHistory();
-const store = setupStore(history);
+const store = createStore(history);
 
-/* global document */
-render(
+const renderApp = AppComponent => render(
   <Provider store={store}>
     <ConnectedRouter history={history}>
-      <App />
+      <AppComponent />
     </ConnectedRouter>
   </Provider>,
+  /* global document */
   document.getElementById('root'),
 );
 
-if (process.env.NODE_ENV == 'development' && module.hot) {
-  module.hot.accept('../app/App', () => {
-    const NewApp = require('../app/App').default;
-    render(
-      <Provider store={store}>
-        <ConnectedRouter history={history}>
-          <NewApp />
-        </ConnectedRouter>
-      </Provider>,
-      document.getElementById('root'),
-    );
+renderApp(App);
+
+if (process.env.NODE_ENV === 'development' && module.hot) {
+  module.hot.accept('../app/App', async () => {
+    const NewApp = (await import('../app/App')).default;
+
+    renderApp(NewApp);
   });
 }

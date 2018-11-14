@@ -11,7 +11,7 @@ const LazyBaz = Loadable({
   loading: () => <div>loading...</div>,
 });
 
-export default function Foo(props: object) {
+export default function Foo() {
   return (
     <>
       <h1>This is foo</h1>

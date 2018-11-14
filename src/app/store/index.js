@@ -1,30 +1,20 @@
-import { createStore, applyMiddleware, compose } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
 import { connectRouter, routerMiddleware } from 'connected-react-router';
-import thunk from 'redux-thunk';
-import createRootReducer from './reducers';
+import createSagaMiddleware from 'redux-saga';
+import { composeWithDevTools } from 'redux-devtools-extension';
+
+import createRootReducer from './rootReducer';
+import initSagas from './rootSaga';
 
 const initialState = {};
-const enhancers = [];
-
-/* global window */
-/* eslint no-underscore-dangle: "off" */
-if (process.env.NODE_ENV === 'development') {
-  const devToolsExtension = window.__REDUX_DEVTOOLS_EXTENSION__;
-
-  if (typeof devToolsExtension === 'function') {
-    enhancers.push(devToolsExtension());
-  }
-}
+const sagaMiddleware = createSagaMiddleware();
 
 // Setup Redux store with routing and thunks
 const setupStore = (history) => {
-  const middleware = [thunk, routerMiddleware(history)];
+  const middleware = [sagaMiddleware, routerMiddleware(history)];
 
   // Merge enhancers
-  const composedEnhancers = compose(
-    applyMiddleware(...middleware),
-    ...enhancers,
-  );
+  const composedEnhancers = composeWithDevTools(applyMiddleware(...middleware));
 
   // Build the store
   const store = createStore(
@@ -33,10 +23,12 @@ const setupStore = (history) => {
     composedEnhancers,
   );
 
-  // Hot reload reducers (requires Webpack or Browserify HMR to be enabled)
+  initSagas(sagaMiddleware);
+
+  // Hot reload reducers
   if (module.hot) {
-    module.hot.accept('./reducers', () => {
-      const createNewRootReducer = require('./reducers').default;
+    module.hot.accept('./rootReducer', async () => {
+      const createNewRootReducer = (await import('./rootReducer')).default;
 
       store.replaceReducer(createNewRootReducer(history));
     });

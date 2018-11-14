@@ -1,13 +1,13 @@
 import express from 'express';
 import compression from 'compression';
 import webpack from 'webpack';
-import fastify from 'fastify';
-import fastifyStatic from 'fastify-static';
-import pino from 'pino';
-import fs from 'fs';
-import path from 'path';
+// import fastify from 'fastify';
+// import fastifyStatic from 'fastify-static';
+// import pino from 'pino';
+// import fs from 'fs';
+// import path from 'path';
 
-import { renderAppExpress, renderAppFastify } from './render-app';
+import { renderAppExpress } from './render-app';
 import config from '../../webpack.dev';
 
 const app = express();
